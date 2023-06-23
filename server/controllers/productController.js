@@ -8,3 +8,9 @@ export const newProduct = async (req) => {
 
     return NextResponse.json({ product })
 }
+
+export const getProducts = async () => {
+    const products = await Product.find()
+
+    return NextResponse.json({ products })
+}
