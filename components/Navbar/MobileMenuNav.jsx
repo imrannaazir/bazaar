@@ -1,21 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Container from "../shared/Container";
 import { PiCookingPot } from "react-icons/pi";
 import Link from "next/link";
-import SubCategoriesLinks from "./SubCategoriesLinks";
-
-export default function Navbar() {
+import { LiaAngleDownSolid } from "react-icons/lia";
+import SubCategoriesLinkMobile from "./SubCategoriesLinkMobile";
+export default function MobileMenuNav() {
   const categories = [
     {
       id: 1,
       name: "Cooking",
       icon: PiCookingPot,
-      route: "",
+      route: "/spices ",
       sub_categories: [
         {
           id: 1,
           name: "Spices",
-          route: "",
+          route: "/spices",
         },
         {
           id: 2,
@@ -590,40 +592,53 @@ export default function Navbar() {
 
   function Category({ category }) {
     const { icon: ReactIcon, name, sub_categories } = category || {};
+
+    const [isOpen, setIsOpen] = useState(false);
     return (
       <div
         className="
-      group
+        font-semibold
+        text-lg
+        
       "
       >
         <Link
           href={`/`}
           className="
-        pb-3
         flex
-        flex-col
         items-center
-        text-gray-400
-        hover:text-gray-700
-        border-b-[3px]
-        border-transparent
-        duration-200
-        hover:border-primary
-        relative
-        group
+        gap-5  
+        text-white
+       
       "
         >
           <ReactIcon className="text-4xl" />
-          <p>{name}</p>
+          <p
+            className="
+          
+          flex
+          items-center
+          gap-3"
+          >
+            <span>{name}</span>
+            <LiaAngleDownSolid
+              onClick={() => setIsOpen(!isOpen)}
+              className={isOpen ? "rotate-180" : "rotate-0"}
+            />
+          </p>
         </Link>
-        <SubCategoriesLinks categories={sub_categories} />
+        <SubCategoriesLinkMobile
+          categories={sub_categories}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        />
       </div>
     );
   }
 
   return (
     <Container>
-      <div className="lg:flex justify-between hidden ">
+      <div className="flex flex-col gap-5 justify-between  ">
         {categories.map((category) => (
           <Category key={category.id} category={category} />
         ))}

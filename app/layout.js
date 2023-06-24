@@ -1,3 +1,5 @@
+
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Navbar/Header'

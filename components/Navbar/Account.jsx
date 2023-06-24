@@ -3,7 +3,7 @@ import { BiUser } from "react-icons/bi";
 export default function Account() {
   return (
     <div
-      className="
+      className={`
     hidden
     md:flex
     w-11
@@ -13,7 +13,7 @@ export default function Account() {
     text-gray-500
     items-center
     justify-center
-    rounded-full"
+    rounded-full`}
     >
       <BiUser
         className="

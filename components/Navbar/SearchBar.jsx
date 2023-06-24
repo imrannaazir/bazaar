@@ -9,8 +9,8 @@ export default function SearchBar() {
     "
     >
       <label
-        for="default-search"
-        class="
+        htmlFor="default-search"
+        className="
         mb-2 
         text-sm 
         font-medium 
@@ -23,11 +23,11 @@ export default function SearchBar() {
       </label>
 
       <div
-        class="
+        className="
       relative"
       >
         <div
-          class="
+          className="
         hidden  
         absolute 
         inset-y-0
@@ -40,16 +40,14 @@ export default function SearchBar() {
         >
           <svg
             aria-hidden="true"
-            class="w-5 h-5 text-gray-500"
+            className="w-5 h-5 text-gray-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeWidth="2"
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
@@ -58,7 +56,7 @@ export default function SearchBar() {
         <input
           type="search"
           id="default-search"
-          class="
+          className="
           block 
           w-full 
           p-4 
@@ -77,7 +75,7 @@ export default function SearchBar() {
         />
         <button
           type="submit"
-          class="
+          className="
           text-white 
           absolute 
           inset-y-0
